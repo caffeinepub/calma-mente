@@ -1,100 +1,52 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix Application Startup Error",
+  "title": "Fix blank home screen by implementing IndexPage content",
   "requirements": [
     {
-      "id": "REQ-18",
-      "summary": "Investigate and fix the error that occurs when the Calma-Mente app initializes or loads for the first time",
+      "id": "REQ-27",
+      "summary": "Replace the empty IndexPage placeholder content with a functional home screen that displays a welcome message and indicates the app is ready for use",
       "acceptanceCriteria": [
-        "The app loads without errors on initial startup",
-        "Users can access the welcome screen without encountering errors",
-        "Console logs show no critical errors during app initialization",
-        "All routes (welcome, home, breathing, diary) load successfully"
+        "The IndexPage component renders visible content instead of a blank screen",
+        "Users see a clear welcome message or starter content when visiting the root route",
+        "The page layout is properly structured within the existing Layout component"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/main.tsx",
+          "path": "frontend/src/pages/IndexPage.tsx",
           "operation": "modify",
-          "description": "Add error boundary wrapper around the app root to catch and log initialization errors. Add console logging to track provider initialization sequence. Ensure QueryClientProvider and InternetIdentityProvider are correctly configured with proper error handling."
-        },
+          "description": "Replace the minimal placeholder content with a functional home screen featuring a centered welcome message, brief description, and visual structure that makes it clear the application is ready for use. Include a headline welcoming users, explanatory text indicating the starter template is ready for customization, and proper spacing using Tailwind utilities to create a polished landing experience."
+        }
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "summary": "Update the application title in frontend/index.html from 'New Application' to a meaningful placeholder or generic app name",
+      "acceptanceCriteria": [
+        "The browser tab displays a proper application title instead of 'New Application'",
+        "The title is generic enough to work for any new application being built"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Change the title element from 'New Application' to a more meaningful generic placeholder such as 'Starter Application' or 'App Template' that better represents a ready-to-customize application template."
+        }
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "summary": "Verify that the App.tsx router configuration correctly mounts IndexPage at the root route and that Layout wrapper is properly applied",
+      "acceptanceCriteria": [
+        "The root route ('/') successfully renders the IndexPage component",
+        "The Layout component header and footer are visible on the home screen",
+        "No console errors appear related to routing or component mounting"
+      ],
+      "file_operations": [
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Add error boundary for router initialization. Verify that all route components (welcome, home, breathing, diary) are properly imported and registered. Add fallback UI for routing errors. Ensure Layout component wraps routes correctly without causing mounting issues."
-        },
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "modify",
-          "description": "Add error boundary to catch rendering errors in Layout component. Verify that all child components (header, footer) render without throwing errors. Add null checks for authentication state before rendering auth-dependent UI elements."
-        }
-      ]
-    },
-    {
-      "id": "REQ-19",
-      "summary": "Verify that Internet Identity authentication initializes correctly without errors on app startup",
-      "acceptanceCriteria": [
-        "AuthClient initializes without throwing errors",
-        "Identity persistence and delegation validation work correctly",
-        "No authentication-related errors appear in the console during startup"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useInternetIdentity.ts",
-          "operation": "modify",
-          "description": "Add try-catch blocks around AuthClient.create() and identity validation logic. Add proper error logging for authentication initialization failures. Ensure that authentication errors do not block app initialization. Add fallback state when AuthClient fails to initialize. Verify that delegation validation handles expired or invalid delegations gracefully without throwing unhandled errors."
-        }
-      ]
-    },
-    {
-      "id": "REQ-20",
-      "summary": "Ensure backend actor connection is established successfully on app initialization",
-      "acceptanceCriteria": [
-        "Backend actor is created without errors",
-        "Initial queries (motivational messages, diary entries) execute successfully",
-        "Network requests to the canister complete without failures"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useActor.ts",
-          "operation": "modify",
-          "description": "Add try-catch blocks around actor creation logic. Add error logging for actor initialization failures. Ensure that actor creation errors are handled gracefully and do not crash the app. Add retry logic or fallback state when backend connection fails. Verify that the actor is properly typed and matches the backend interface."
-        },
-        {
-          "path": "frontend/src/hooks/useQueries.ts",
-          "operation": "modify",
-          "description": "Add proper error handling for all React Query hooks (useMyEntries, useAddDiaryEntry, useMotivationalMessages). Ensure queries have proper enabled flags to prevent execution before actor is ready. Add retry configuration for failed queries. Add error state handling that displays user-friendly messages instead of crashing. Verify that query invalidation after actor changes works correctly."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Add error boundary for motivational message fetching. Ensure useMotivationalMessages hook handles loading and error states properly. Add fallback UI when motivational messages fail to load. Verify that the page renders successfully even when backend queries fail."
-        },
-        {
-          "path": "frontend/src/pages/DiaryPage.tsx",
-          "operation": "modify",
-          "description": "Add error boundary for diary entry fetching. Ensure useMyEntries hook handles loading and error states properly. Add fallback UI when diary entries fail to load. Verify that authentication check does not block page rendering. Ensure the page handles cases where the user is not authenticated gracefully."
-        }
-      ]
-    },
-    {
-      "id": "REQ-21",
-      "summary": "Verify that React Query initialization and provider setup work correctly without errors",
-      "acceptanceCriteria": [
-        "QueryClientProvider wraps the app correctly",
-        "React Query hooks initialize without errors",
-        "Query invalidation and refetching work as expected"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/main.tsx",
-          "operation": "modify",
-          "description": "Verify QueryClient configuration in main.tsx. Add proper default options for queries (retry, staleTime, cacheTime). Ensure QueryClientProvider is correctly positioned in the provider hierarchy. Add error logging for query client initialization. Verify that React Query devtools (if present) do not cause initialization errors."
-        },
-        {
-          "path": "frontend/src/hooks/useQueries.ts",
-          "operation": "modify",
-          "description": "Verify that all React Query hooks use proper queryKey structures. Ensure query functions handle undefined actor gracefully. Add proper typing for query data and error states. Verify that mutation onSuccess callbacks do not cause cascading errors. Ensure queryClient.invalidateQueries calls use correct query keys that match the registered queries."
+          "description": "Review and verify the router configuration to ensure IndexPage is correctly mounted at the root route '/' within the Layout wrapper. Confirm that the route structure properly renders the Layout component with header and footer around the IndexPage content. If any issues are found in the routing setup, correct them to ensure proper component mounting without console errors."
         }
       ]
     }

@@ -2,10 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider, createRouter, createRoute, createRootRoute, Outlet } from '@tanstack/react-router';
 import { Toaster } from '@/components/ui/sonner';
 import Layout from './components/Layout';
-import WelcomePage from './pages/WelcomePage';
-import HomePage from './pages/HomePage';
-import BreathingExercisePage from './pages/BreathingExercisePage';
-import DiaryPage from './pages/DiaryPage';
+import IndexPage from './pages/IndexPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,36 +22,13 @@ const rootRoute = createRootRoute({
   ),
 });
 
-const welcomeRoute = createRoute({
+const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: WelcomePage,
+  component: IndexPage,
 });
 
-const homeRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/home',
-  component: HomePage,
-});
-
-const breathingRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/breathing',
-  component: BreathingExercisePage,
-});
-
-const diaryRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/diary',
-  component: DiaryPage,
-});
-
-const routeTree = rootRoute.addChildren([
-  welcomeRoute,
-  homeRoute,
-  breathingRoute,
-  diaryRoute,
-]);
+const routeTree = rootRoute.addChildren([indexRoute]);
 
 const router = createRouter({ routeTree });
 

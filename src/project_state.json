@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 17,
+  "projectStateVersion": 21,
   "summary": "Calma-Mente: A meditation and breathing app with a start screen, breathing exercises with visual animations, diary feature for mood tracking, and Internet Identity authentication for saving user data",
   "architectural_notes": [],
   "known_issues": [
-    "App presents an error at startup/initialization"
+    "Start screen is blank/empty after deployment"
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -159,70 +159,70 @@
         "REQ-21"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-all-existing-calma-mente-frontend-code-including-all-pages-welcomepage-homepage-breathingexercisepage-diarypage-components-diaryentryform-diaryentrylist-motivationalmessagecard-custom-hooks-usequeries-usebreathingtimer-useclipboard-and-routes",
+      "title": "Remove all existing Calma-Mente frontend code, including all pages (WelcomePage, HomePage, BreathingExercisePage, DiaryPage), components (DiaryEntryForm, DiaryEntryList, MotivationalMessageCard), custom hooks (useQueries, useBreathingTimer, useClipboard), and routes",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-calma-mente-branding-and-styling-including-custom-color-schemes-sage-green-and-lavender-palette-meditation-themed-css-animations-and-application-specific-design-tokens-from-index-css-and-tailwind-config-js",
+      "title": "Remove all Calma-Mente branding and styling, including custom color schemes (sage green and lavender palette), meditation-themed CSS animations, and application-specific design tokens from index.css and tailwind.config.js",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-reset-the-frontend-to-a-minimal-starter-template-with-basic-routing-setup-preserving-only-the-core-infrastructure-useinternetidentity-useactor-hooks-react-query-setup-and-layout-component-structure",
+      "title": "Reset the frontend to a minimal starter template with basic routing setup, preserving only the core infrastructure (useInternetIdentity, useActor hooks, React Query setup, and Layout component structure)",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-empty-indexpage-placeholder-content-with-a-functional-home-screen-that-displays-a-welcome-message-and-indicates-the-app-is-ready-for-use",
+      "title": "Replace the empty IndexPage placeholder content with a functional home screen that displays a welcome message and indicates the app is ready for use",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-application-title-in-frontend-index-html-from-new-application-to-a-meaningful-placeholder-or-generic-app-name",
+      "title": "Update the application title in frontend/index.html from 'New Application' to a meaningful placeholder or generic app name",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Start/home screen with navigation",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Breathing exercises with visual animations",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Diary feature for mood tracking",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Internet Identity authentication to save user data",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Add motivational messages",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Add messages about how precious life is",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Add a new collection of motivational messages focused on the preciousness and value of life to the existing motivational message array in the backend",
+      "summary": "Remove all existing Calma-Mente application code from the backend, including the main.mo actor with diary entries, motivational messages, and all related data structures",
       "reqIds": [
-        "REQ-11"
+        "REQ-22"
       ],
       "status": "pending"
     },
     {
-      "id": "AR-8",
-      "summary": "Create Android download link/build",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-9",
-      "summary": "Add Matheus Gama as CEO of the app",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-11",
-      "summary": "Verify that Internet Identity authentication initializes correctly without errors on app startup",
+      "id": "AR-4",
+      "summary": "Reset the backend to a minimal starter template with an empty actor that is ready to receive new application logic",
       "reqIds": [
-        "REQ-19"
+        "REQ-25"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Verify that the App.tsx router configuration correctly mounts IndexPage at the root route and that Layout wrapper is properly applied",
+      "reqIds": [
+        "REQ-29"
       ],
       "status": "pending"
     }

@@ -89,60 +89,10 @@ export class ExternalBlob {
         return this;
     }
 }
-export interface DiaryEntry {
-    date: string;
-    mood: string;
-    reflection: string;
-}
 export interface backendInterface {
-    addDiaryEntry(date: string, mood: string, reflection: string): Promise<void>;
-    getAllMotivationalMessages(): Promise<Array<string>>;
-    getMyEntries(): Promise<Array<DiaryEntry>>;
 }
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
-    async addDiaryEntry(arg0: string, arg1: string, arg2: string): Promise<void> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.addDiaryEntry(arg0, arg1, arg2);
-                return result;
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.addDiaryEntry(arg0, arg1, arg2);
-            return result;
-        }
-    }
-    async getAllMotivationalMessages(): Promise<Array<string>> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.getAllMotivationalMessages();
-                return result;
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.getAllMotivationalMessages();
-            return result;
-        }
-    }
-    async getMyEntries(): Promise<Array<DiaryEntry>> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.getMyEntries();
-                return result;
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.getMyEntries();
-            return result;
-        }
-    }
 }
 export interface CreateActorOptions {
     agent?: Agent;

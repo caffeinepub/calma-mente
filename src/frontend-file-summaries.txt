@@ -1,8 +1,8 @@
 {
-  "frontend/src/index.css": "Global styles with calming OKLCH color palette (soft sage greens, lavenders) for light and dark modes, custom breathing animation keyframes, and meditation-focused design tokens.",
-  "frontend/tailwind.config.js": "Tailwind configuration extended with calming color palette, Inter font family, custom border radius, soft shadows with glow effects, and fade-in animations for meditation app aesthetic.",
-  "frontend/src/App.tsx": "Main app component with TanStack Router configuration using Outlet pattern in rootRoute, QueryClient provider with default options, and routes for welcome, home, breathing, and diary pages wrapped in Layout.",
-  "frontend/src/components/Layout.tsx": "Layout wrapper component with header (logo, auth controls), meditation background, and footer featuring Android download button, share button with clipboard functionality, public URL display, CEO attribution, and caffeine.ai attribution.",
+  "frontend/src/index.css": "Clean global styles with neutral OKLCH color system for light and dark modes, using system fonts and minimal design tokens.",
+  "frontend/tailwind.config.js": "Default Tailwind configuration with OKLCH color tokens and essential shadcn/ui customizations, removing all meditation-themed styling.",
+  "frontend/src/App.tsx": "Main app component with QueryClient provider and single root route ('/') configured with minimal placeholder page.",
+  "frontend/src/components/Layout.tsx": "Basic layout wrapper with header containing auth controls and \"Starter Application\" branding, main content area, and minimal footer with caffeine.ai attribution.",
   "frontend/src/pages/WelcomePage.tsx": "Welcome landing page displaying Calma-Mente branding, app description, and three navigation cards for home, breathing exercises, and diary features.",
   "frontend/src/pages/HomePage.tsx": "Home dashboard showing motivational message card at the top, followed by two main feature cards (breathing exercises and diary) with navigation buttons and authentication status prompt, with fixed useEffect dependency array.",
   "frontend/src/pages/BreathingExercisePage.tsx": "Breathing exercise page with animated visual guidance circle, start/pause/reset controls, and motivational message display that appears after completing each breathing cycle and auto-dismisses after 5 seconds.",
@@ -12,5 +12,7 @@
   "frontend/src/hooks/useQueries.ts": "React Query hooks for backend operations including diary entries (useGetMyEntries, useAddDiaryEntry) and motivational messages (useGetMotivationalMessages) with proper error handling to prevent crashes when backend returns errors.",
   "frontend/src/hooks/useBreathingTimer.ts": "Custom hook managing breathing exercise timing logic with 4-second phases (inhale, hold, exhale), providing start/pause/reset controls and current phase state.",
   "frontend/src/components/MotivationalMessageCard.tsx": "Reusable card component displaying a motivational message in Portuguese with calming styling, sparkle icon, and refresh button to fetch new random messages.",
-  "frontend/src/hooks/useClipboard.ts": "Custom React hook that wraps the Clipboard API to copy text to clipboard with success/error state management and auto-reset after 2 seconds."
+  "frontend/src/hooks/useClipboard.ts": "Custom React hook that wraps the Clipboard API to copy text to clipboard with success/error state management and auto-reset after 2 seconds.",
+  "frontend/src/pages/IndexPage.tsx": "Enhanced home page with hero section, feature cards highlighting the tech stack (React, TypeScript, Internet Computer), and getting started message to welcome users with visible, structured content.",
+  "frontend/index.html": "HTML entry point with \"Starter Application\" title that better represents a ready-to-customize application template."
 }

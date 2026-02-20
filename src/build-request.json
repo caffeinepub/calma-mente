@@ -1,84 +1,66 @@
 {
   "kind": "build_request",
-  "title": "Fix application startup error",
-  "projectName": "Calma-Mente",
+  "title": "Fix blank home screen by implementing IndexPage content",
+  "projectName": "New Application",
   "priority": "high",
   "requirements": [
     {
-      "id": "REQ-18",
-      "text": "Investigate and fix the error that occurs when the Calma-Mente app initializes or loads for the first time",
-      "target": "unknown",
+      "id": "REQ-27",
+      "text": "Replace the empty IndexPage placeholder content with a functional home screen that displays a welcome message and indicates the app is ready for use",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-user-blank-screen"
         ],
         "quotes": [
-          "App apresenta erro no início"
+          "Tela de início está em branco"
         ]
       },
       "acceptanceCriteria": [
-        "The app loads without errors on initial startup",
-        "Users can access the welcome screen without encountering errors",
-        "Console logs show no critical errors during app initialization",
-        "All routes (welcome, home, breathing, diary) load successfully"
+        "The IndexPage component renders visible content instead of a blank screen",
+        "Users see a clear welcome message or starter content when visiting the root route",
+        "The page layout is properly structured within the existing Layout component"
       ]
     },
     {
-      "id": "REQ-19",
-      "text": "Verify that Internet Identity authentication initializes correctly without errors on app startup",
+      "id": "REQ-28",
+      "text": "Update the application title in frontend/index.html from 'New Application' to a meaningful placeholder or generic app name",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-user-blank-screen"
         ]
       },
       "acceptanceCriteria": [
-        "AuthClient initializes without throwing errors",
-        "Identity persistence and delegation validation work correctly",
-        "No authentication-related errors appear in the console during startup"
+        "The browser tab displays a proper application title instead of 'New Application'",
+        "The title is generic enough to work for any new application being built"
       ]
     },
     {
-      "id": "REQ-20",
-      "text": "Ensure backend actor connection is established successfully on app initialization",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Backend actor is created without errors",
-        "Initial queries (motivational messages, diary entries) execute successfully",
-        "Network requests to the canister complete without failures"
-      ]
-    },
-    {
-      "id": "REQ-21",
-      "text": "Verify that React Query initialization and provider setup work correctly without errors",
+      "id": "REQ-29",
+      "text": "Verify that the App.tsx router configuration correctly mounts IndexPage at the root route and that Layout wrapper is properly applied",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-user-blank-screen"
         ]
       },
       "acceptanceCriteria": [
-        "QueryClientProvider wraps the app correctly",
-        "React Query hooks initialize without errors",
-        "Query invalidation and refetching work as expected"
+        "The root route ('/') successfully renders the IndexPage component",
+        "The Layout component header and footer are visible on the home screen",
+        "No console errors appear related to routing or component mounting"
       ]
     }
   ],
   "constraints": [
-    "Do not modify the Internet Identity authentication flow in useInternetIdentity.ts",
-    "Preserve existing backend actor creation logic in useActor.ts",
-    "Keep the current routing structure in App.tsx intact"
+    "Preserve the existing Layout component structure with header and footer",
+    "Maintain the minimal starter template approach without introducing application-specific features",
+    "Do not modify immutable infrastructure files (useInternetIdentity, useActor, main.tsx)"
   ],
   "nonGoals": [
-    "Redesigning the app's visual theme",
-    "Adding new features or functionality",
-    "Changing the technology stack",
-    "Modifying the motivational message content"
+    "Implementing any Calma-Mente specific features",
+    "Adding complex application logic or data models",
+    "Creating multiple pages or navigation beyond the single home screen"
   ],
   "imageRequirements": {
     "required": [],

@@ -8,32 +8,10 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
-export const DiaryEntry = IDL.Record({
-  'date' : IDL.Text,
-  'mood' : IDL.Text,
-  'reflection' : IDL.Text,
-});
-
-export const idlService = IDL.Service({
-  'addDiaryEntry' : IDL.Func([IDL.Text, IDL.Text, IDL.Text], [], []),
-  'getAllMotivationalMessages' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
-  'getMyEntries' : IDL.Func([], [IDL.Vec(DiaryEntry)], ['query']),
-});
+export const idlService = IDL.Service({});
 
 export const idlInitArgs = [];
 
-export const idlFactory = ({ IDL }) => {
-  const DiaryEntry = IDL.Record({
-    'date' : IDL.Text,
-    'mood' : IDL.Text,
-    'reflection' : IDL.Text,
-  });
-  
-  return IDL.Service({
-    'addDiaryEntry' : IDL.Func([IDL.Text, IDL.Text, IDL.Text], [], []),
-    'getAllMotivationalMessages' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
-    'getMyEntries' : IDL.Func([], [IDL.Vec(DiaryEntry)], ['query']),
-  });
-};
+export const idlFactory = ({ IDL }) => { return IDL.Service({}); };
 
 export const init = ({ IDL }) => { return []; };

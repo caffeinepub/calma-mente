@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-investigate-and-fix-the-error-that-occurs-when-the-calma-mente-app-initializes-or-loads-for-the-first-time",
-      "featureTitle": "Investigate and fix the error that occurs when the Calma-Mente app initializes or loads for the first time",
+      "featureId": "feature-replace-the-empty-indexpage-placeholder-content-with-a-functional-home-screen-that-displays-a-welcome-message-and-indicates-the-app-is-ready-for-use",
+      "featureTitle": "Replace the empty IndexPage placeholder content with a functional home screen that displays a welcome message and indicates the app is ready for use",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/pages/IndexPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,16 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-18"
+        "REQ-27"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-ensure-backend-actor-connection-is-established-successfully-on-app-initialization",
-      "featureTitle": "Ensure backend actor connection is established successfully on app initialization",
+      "featureId": "feature-update-the-application-title-in-frontend-index-html-from-new-application-to-a-meaningful-placeholder-or-generic-app-name",
+      "featureTitle": "Update the application title in frontend/index.html from 'New Application' to a meaningful placeholder or generic app name",
       "files": [
-        "frontend/src/hooks/useQueries.ts",
-        "frontend/src/pages/HomePage.tsx"
+        "frontend/index.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -34,25 +33,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-20"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-verify-that-react-query-initialization-and-provider-setup-work-correctly-without-errors",
-      "featureTitle": "Verify that React Query initialization and provider setup work correctly without errors",
-      "files": [
-        "frontend/src/hooks/useQueries.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-21"
+        "REQ-28"
       ],
       "confidence": "high"
     }
