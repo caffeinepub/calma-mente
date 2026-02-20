@@ -1,0 +1,63 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add motivational messages",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "summary": "Add backend capability to store and retrieve motivational messages in Portuguese related to mindfulness and meditation",
+      "acceptanceCriteria": [
+        "Backend stores a curated collection of motivational messages in Portuguese",
+        "Messages cover themes of mindfulness, breathing, meditation, self-care, and emotional wellness",
+        "At least 15-20 unique motivational messages are available",
+        "Messages can be retrieved randomly or sequentially"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add useGetMotivationalMessage hook that calls the getAllMotivationalMessages backend function and returns a random message from the collection. Use React Query to fetch and cache the message collection, then select a random message on each call. This provides the frontend interface to access motivational messages stored in the backend."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Display a random motivational message on the home page with refresh capability",
+      "acceptanceCriteria": [
+        "Home page shows a motivational message in a visually prominent card or section",
+        "Message changes on page load or includes a refresh button to get a new message",
+        "Message display uses calming typography and styling consistent with the meditation theme",
+        "Message is clearly distinguishable from navigation cards"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MotivationalMessageCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable card component that displays a motivational message in Portuguese with calming typography. Include a refresh button icon to fetch a new random message. Style the card with the app's sage green and lavender theme colors, using a subtle background and rounded borders to distinguish it from navigation cards. The component accepts a message string prop and an onRefresh callback."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add the MotivationalMessageCard component above the existing navigation cards grid. Use the useGetMotivationalMessage hook to fetch a random message on page load. Implement a refresh handler that refetches a new random message. Position the message card prominently at the top of the page content area, ensuring it's visually distinct from the Breathing and Diary navigation cards below."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Show a motivational message after completing a breathing exercise cycle",
+      "acceptanceCriteria": [
+        "After completing at least one full breathing cycle, display a brief motivational message",
+        "Message appears in a non-intrusive way that doesn't interrupt the breathing flow",
+        "Message relates to breathing practice, mindfulness, or perseverance",
+        "User can dismiss the message or it auto-fades after a few seconds"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/BreathingExercisePage.tsx",
+          "operation": "modify",
+          "description": "Add state to track when a breathing cycle completes (cycle count increases). When cycleCount reaches 1 or higher, fetch and display a motivational message using the useGetMotivationalMessage hook. Show the message in a toast notification or a fade-in overlay that auto-dismisses after 4-5 seconds. Ensure the message display doesn't interrupt the breathing animation. Use the existing toast system or create a subtle overlay component positioned below the main breathing circle."
+        }
+      ]
+    }
+  ]
+}

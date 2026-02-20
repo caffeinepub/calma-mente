@@ -1,0 +1,15 @@
+{
+  "frontend/src/index.css": "Global styles with calming OKLCH color palette (soft sage greens, lavenders) for light and dark modes, custom breathing animation keyframes, and meditation-focused design tokens.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with calming color palette, Inter font family, custom border radius, soft shadows with glow effects, and fade-in animations for meditation app aesthetic.",
+  "frontend/src/App.tsx": "Main app component with TanStack Router configuration defining routes for welcome, home, breathing exercises, and diary pages, all wrapped in a Layout component.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component providing consistent header with logo and authentication controls, meditation background overlay, and footer with attribution across all pages.",
+  "frontend/src/pages/WelcomePage.tsx": "Welcome landing page displaying Calma-Mente branding, app description, and three navigation cards for home, breathing exercises, and diary features.",
+  "frontend/src/pages/HomePage.tsx": "Home dashboard showing motivational message card at the top, followed by two main feature cards (breathing exercises and diary) with navigation buttons and authentication status prompt.",
+  "frontend/src/pages/BreathingExercisePage.tsx": "Breathing exercise page with animated visual guidance circle, start/pause/reset controls, and motivational message display that appears after completing each breathing cycle and auto-dismisses after 5 seconds.",
+  "frontend/src/pages/DiaryPage.tsx": "Diary page with authentication guard showing login prompt for anonymous users, or split view with entry form and entry list for authenticated users.",
+  "frontend/src/components/DiaryEntryForm.tsx": "Form component for creating new diary entries with mood selection dropdown (8 mood options with emojis) and reflection textarea, submitting to backend via React Query mutation.",
+  "frontend/src/components/DiaryEntryList.tsx": "Scrollable list component displaying user's diary entries in reverse chronological order with mood emojis, timestamps, and reflection text, fetched from backend.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend operations including diary entries (useGetMyEntries, useAddDiaryEntry) and motivational messages (useGetMotivationalMessages) with proper caching and invalidation.",
+  "frontend/src/hooks/useBreathingTimer.ts": "Custom hook managing breathing exercise timing logic with 4-second phases (inhale, hold, exhale), providing start/pause/reset controls and current phase state.",
+  "frontend/src/components/MotivationalMessageCard.tsx": "Reusable card component displaying a motivational message in Portuguese with calming styling, sparkle icon, and refresh button to fetch new random messages."
+}

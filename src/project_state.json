@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Calma-Mente: A meditation and breathing app with a start screen, breathing exercises with visual animations, diary feature for mood tracking, and Internet Identity authentication for saving user data",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-start-welcome-screen-that-introduces-the-calma-mente-app-and-provides-navigation-to-the-main-features-home-breathing-exercises-diary",
+      "title": "Create a start/welcome screen that introduces the Calma-Mente app and provides navigation to the main features (home, breathing exercises, diary)",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-home-screen-with-navigation-that-allows-users-to-access-breathing-exercises-and-diary-features",
+      "title": "Create a home screen with navigation that allows users to access breathing exercises and diary features",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-breathing-exercise-feature-with-visual-animations-that-guide-users-through-breathing-patterns",
+      "title": "Implement breathing exercise feature with visual animations that guide users through breathing patterns",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-diary-feature-that-allows-authenticated-users-to-track-their-mood-and-reflections",
+      "title": "Create a diary feature that allows authenticated users to track their mood and reflections",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-internet-identity-authentication-to-allow-users-to-securely-log-in-and-save-their-progress-and-diary-entries",
+      "title": "Implement Internet Identity authentication to allow users to securely log in and save their progress and diary entries",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-the-app-with-a-calming-meditative-visual-theme-using-soft-colors-serene-imagery-and-gentle-typography-that-promotes-relaxation-and-mindfulness",
+      "title": "Design the app with a calming, meditative visual theme using soft colors, serene imagery, and gentle typography that promotes relaxation and mindfulness",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-generated-background-and-icon-images-as-static-assets-in-frontend-public-assets-generated-for-use-throughout-the-app",
+      "title": "Render generated background and icon images as static assets in frontend/public/assets/generated for use throughout the app",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-collection-of-motivational-and-inspirational-messages-related-to-mindfulness-meditation-and-mental-wellness-that-can-be-displayed-throughout-the-app",
+      "title": "Add a collection of motivational and inspirational messages related to mindfulness, meditation, and mental wellness that can be displayed throughout the app",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-a-random-motivational-message-on-the-home-page-that-changes-each-time-the-user-visits-or-refreshes",
+      "title": "Display a random motivational message on the home page that changes each time the user visits or refreshes",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-show-a-motivational-message-after-completing-a-breathing-exercise-cycle-to-encourage-continued-practice",
+      "title": "Show a motivational message after completing a breathing exercise cycle to encourage continued practice",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Start/home screen with navigation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Breathing exercises with visual animations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Diary feature for mood tracking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Internet Identity authentication to save user data",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add motivational messages",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Calma-Mente",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
