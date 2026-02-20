@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 13,
   "summary": "Calma-Mente: A meditation and breathing app with a start screen, breathing exercises with visual animations, diary feature for mood tracking, and Internet Identity authentication for saving user data",
   "architectural_notes": [],
   "known_issues": [],
@@ -107,6 +107,14 @@
       "title": "Add 'Matheus Gama, CEO' attribution in the app footer below the Android download button",
       "reqIds": [
         "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-android-download-button-in-the-app-footer-layout-tsx-to-link-to-an-actual-download-url-instead-of-the-placeholder-android-download",
+      "title": "Update the Android download button in the app footer (Layout.tsx) to link to an actual download URL instead of the placeholder '#android-download'",
+      "reqIds": [
+        "REQ-15"
       ],
       "version": 1
     }

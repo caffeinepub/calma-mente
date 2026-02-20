@@ -68,10 +68,11 @@ export default function Layout({ children }: LayoutProps) {
 
         <footer className="border-t border-border/50 backdrop-blur-sm bg-background/80 mt-16">
           <div className="container mx-auto px-4 py-6">
-            {/* TODO: Update href with actual Play Store or APK download URL when available */}
             <div className="flex justify-center mb-4">
               <a
-                href="#android-download"
+                href="https://play.google.com/store/apps/details?id=com.calmamente.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 transition-all duration-300 hover:shadow-glow"
               >
                 <Smartphone className="w-5 h-5" />

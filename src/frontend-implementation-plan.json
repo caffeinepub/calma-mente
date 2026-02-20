@@ -1,22 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add Matheus Gama as CEO attribution in the app",
+  "title": "Create download link in the app",
   "requirements": [
     {
-      "id": "REQ-14",
-      "summary": "Add 'Matheus Gama, CEO' attribution in the app footer below the Android download button",
+      "id": "REQ-15",
+      "summary": "Update the Android download button in the app footer to link to an actual download URL instead of the placeholder '#android-download'",
       "acceptanceCriteria": [
-        "The footer in Layout.tsx displays 'Matheus Gama, CEO' in a visible, styled format",
-        "The CEO attribution appears below the existing Android download button",
-        "The text styling is consistent with the calming, meditative theme of the app",
-        "The attribution is visible on all pages that use the Layout component"
+        "The Android download button in the footer navigates to a valid URL when clicked",
+        "The link can point to either a Play Store URL or a direct APK download location",
+        "The button remains visually consistent with the existing footer design"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/Layout.tsx",
           "operation": "modify",
-          "description": "Add 'Matheus Gama, CEO' attribution text below the existing Android download button in the footer. Style the attribution with the calming sage green and lavender color palette to match the app's meditative theme. Ensure the text is centered and properly spaced below the download button while maintaining the existing footer structure and caffeine.ai attribution."
+          "description": "Replace the placeholder '#android-download' href in the Android download button with a valid download URL (Play Store or direct APK link). Preserve the existing button styling, Download icon, and footer layout including the CEO attribution and caffeine.ai credit."
         }
       ]
     }

@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-matheus-gama-ceo-attribution-in-the-app-footer-below-the-android-download-button",
-      "featureTitle": "Add 'Matheus Gama, CEO' attribution in the app footer below the Android download button",
+      "featureId": "feature-update-the-android-download-button-in-the-app-footer-layout-tsx-to-link-to-an-actual-download-url-instead-of-the-placeholder-android-download",
+      "featureTitle": "Update the Android download button in the app footer (Layout.tsx) to link to an actual download URL instead of the placeholder '#android-download'",
       "files": [
         "frontend/src/components/Layout.tsx"
       ],
@@ -15,7 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-14"
+        "REQ-15"
       ],
       "confidence": "high"
     }

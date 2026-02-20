@@ -1,10 +1,9 @@
 # Specification
 
 ## Summary
-**Goal:** Add CEO attribution for Matheus Gama in the application footer.
+**Goal:** Add a functional download link for the Android app in the footer.
 
 **Planned changes:**
-- Add "Matheus Gama, CEO" text below the Android download button in the footer
-- Style the attribution to match the app's calming, meditative theme
+- Update the Android download button in the app footer (Layout.tsx) to use a valid download URL instead of the placeholder '#android-download'
 
-**User-visible outcome:** Users will see "Matheus Gama, CEO" displayed in the footer on all pages.
+**User-visible outcome:** Users can click the Android download button in the footer and be directed to a valid download location for the Android app.
