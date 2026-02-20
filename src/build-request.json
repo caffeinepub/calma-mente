@@ -1,36 +1,84 @@
 {
   "kind": "build_request",
-  "title": "Create download link in the app",
+  "title": "Fix application startup error",
   "projectName": "Calma-Mente",
-  "priority": "normal",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-15",
-      "text": "Update the Android download button in the app footer (Layout.tsx) to link to an actual download URL instead of the placeholder '#android-download'",
-      "target": "frontend",
+      "id": "REQ-18",
+      "text": "Investigate and fix the error that occurs when the Calma-Mente app initializes or loads for the first time",
+      "target": "unknown",
       "source": {
         "messageIds": [
-          "msg-user-criar-link"
+          "msg-6"
         ],
         "quotes": [
-          "Criar link para download"
+          "App apresenta erro no início"
         ]
       },
       "acceptanceCriteria": [
-        "The Android download button in the footer navigates to a valid URL when clicked",
-        "The link can point to either a Play Store URL or a direct APK download location",
-        "The button remains visually consistent with the existing footer design"
+        "The app loads without errors on initial startup",
+        "Users can access the welcome screen without encountering errors",
+        "Console logs show no critical errors during app initialization",
+        "All routes (welcome, home, breathing, diary) load successfully"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Verify that Internet Identity authentication initializes correctly without errors on app startup",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ]
+      },
+      "acceptanceCriteria": [
+        "AuthClient initializes without throwing errors",
+        "Identity persistence and delegation validation work correctly",
+        "No authentication-related errors appear in the console during startup"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Ensure backend actor connection is established successfully on app initialization",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend actor is created without errors",
+        "Initial queries (motivational messages, diary entries) execute successfully",
+        "Network requests to the canister complete without failures"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Verify that React Query initialization and provider setup work correctly without errors",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ]
+      },
+      "acceptanceCriteria": [
+        "QueryClientProvider wraps the app correctly",
+        "React Query hooks initialize without errors",
+        "Query invalidation and refetching work as expected"
       ]
     }
   ],
   "constraints": [
-    "Do not modify the footer layout or CEO attribution",
-    "Preserve the existing button styling and icon"
+    "Do not modify the Internet Identity authentication flow in useInternetIdentity.ts",
+    "Preserve existing backend actor creation logic in useActor.ts",
+    "Keep the current routing structure in App.tsx intact"
   ],
   "nonGoals": [
-    "Creating an actual Android build or APK file",
-    "Setting up Play Store deployment",
-    "Adding additional download options for other platforms"
+    "Redesigning the app's visual theme",
+    "Adding new features or functionality",
+    "Changing the technology stack",
+    "Modifying the motivational message content"
   ],
   "imageRequirements": {
     "required": [],

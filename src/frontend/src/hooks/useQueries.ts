@@ -9,7 +9,13 @@ export function useGetMyEntries() {
     queryKey: ['diaryEntries'],
     queryFn: async () => {
       if (!actor) return [];
-      return actor.getMyEntries();
+      try {
+        return await actor.getMyEntries();
+      } catch (error) {
+        // If no entries found, return empty array instead of throwing
+        console.log('No diary entries found or error fetching entries:', error);
+        return [];
+      }
     },
     enabled: !!actor && !isFetching,
   });
@@ -22,7 +28,7 @@ export function useAddDiaryEntry() {
   return useMutation({
     mutationFn: async ({ date, mood, reflection }: { date: string; mood: string; reflection: string }) => {
       if (!actor) throw new Error('Actor not initialized');
-      return actor.addDiaryEntry(date, mood, reflection);
+      return await actor.addDiaryEntry(date, mood, reflection);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['diaryEntries'] });
@@ -37,7 +43,12 @@ export function useGetMotivationalMessages() {
     queryKey: ['motivationalMessages'],
     queryFn: async () => {
       if (!actor) return [];
-      return actor.getAllMotivationalMessages();
+      try {
+        return await actor.getAllMotivationalMessages();
+      } catch (error) {
+        console.error('Error fetching motivational messages:', error);
+        return [];
+      }
     },
     enabled: !!actor && !isFetching,
     staleTime: 1000 * 60 * 60, // Cache for 1 hour since messages don't change often

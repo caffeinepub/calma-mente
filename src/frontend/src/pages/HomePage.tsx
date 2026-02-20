@@ -29,7 +29,7 @@ export default function HomePage() {
     if (messages && messages.length > 0 && !currentMessage) {
       setCurrentMessage(getRandomMessage());
     }
-  }, [messages]);
+  }, [messages, currentMessage]);
 
   const handleRefresh = () => {
     setCurrentMessage(getRandomMessage());

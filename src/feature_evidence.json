@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-android-download-button-in-the-app-footer-layout-tsx-to-link-to-an-actual-download-url-instead-of-the-placeholder-android-download",
-      "featureTitle": "Update the Android download button in the app footer (Layout.tsx) to link to an actual download URL instead of the placeholder '#android-download'",
+      "featureId": "feature-investigate-and-fix-the-error-that-occurs-when-the-calma-mente-app-initializes-or-loads-for-the-first-time",
+      "featureTitle": "Investigate and fix the error that occurs when the Calma-Mente app initializes or loads for the first time",
       "files": [
-        "frontend/src/components/Layout.tsx"
+        "frontend/src/App.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,7 +15,44 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-15"
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-backend-actor-connection-is-established-successfully-on-app-initialization",
+      "featureTitle": "Ensure backend actor connection is established successfully on app initialization",
+      "files": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-verify-that-react-query-initialization-and-provider-setup-work-correctly-without-errors",
+      "featureTitle": "Verify that React Query initialization and provider setup work correctly without errors",
+      "files": [
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
       ],
       "confidence": "high"
     }

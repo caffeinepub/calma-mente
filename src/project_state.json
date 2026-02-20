@@ -1,10 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 13,
+  "projectStateVersion": 17,
   "summary": "Calma-Mente: A meditation and breathing app with a start screen, breathing exercises with visual animations, diary feature for mood tracking, and Internet Identity authentication for saving user data",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "App presents an error at startup/initialization"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-start-welcome-screen-that-introduces-the-calma-mente-app-and-provides-navigation-to-the-main-features-home-breathing-exercises-diary",
@@ -117,6 +119,46 @@
         "REQ-15"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-prominent-share-or-copy-link-button-in-the-app-footer-that-allows-users-to-copy-the-public-url-of-the-calma-mente-app-to-their-clipboard-for-easy-sharing",
+      "title": "Add a prominent 'Share' or 'Copy Link' button in the app footer that allows users to copy the public URL of the Calma-Mente app to their clipboard for easy sharing",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-the-current-production-url-prominently-so-users-can-easily-identify-and-share-the-public-link-to-access-calma-mente",
+      "title": "Display the current production URL prominently so users can easily identify and share the public link to access Calma-Mente",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-error-that-occurs-when-the-calma-mente-app-initializes-or-loads-for-the-first-time",
+      "title": "Investigate and fix the error that occurs when the Calma-Mente app initializes or loads for the first time",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-backend-actor-connection-is-established-successfully-on-app-initialization",
+      "title": "Ensure backend actor connection is established successfully on app initialization",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-react-query-initialization-and-provider-setup-work-correctly-without-errors",
+      "title": "Verify that React Query initialization and provider setup work correctly without errors",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -174,6 +216,14 @@
       "id": "AR-9",
       "summary": "Add Matheus Gama as CEO of the app",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Verify that Internet Identity authentication initializes correctly without errors on app startup",
+      "reqIds": [
+        "REQ-19"
+      ],
       "status": "pending"
     }
   ],

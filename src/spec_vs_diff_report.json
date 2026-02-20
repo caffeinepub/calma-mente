@@ -1,14 +1,25 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-20T01:00:50.831Z",
-  "summary": "REQ-15 is fully implemented. The Android download button in Layout.tsx footer has been updated from placeholder '#android-download' to a valid Play Store URL ('https://play.google.com/store/apps/details?id=com.calmamente.app'). The button maintains existing styling (rounded-full, primary colors, hover effects, Smartphone icon) and footer layout including CEO attribution remains unchanged. No missing requirements or hallucinated features detected.",
+  "generatedAt": "2026-02-20T01:21:52.786Z",
+  "summary": "The diff demonstrates fixes addressing application startup errors through error handling improvements in React Query hooks (useQueries.ts), QueryClient configuration with retry logic in App.tsx, and backend error handling. The changes align with requirements REQ-18, REQ-19, REQ-20, and REQ-21 by implementing graceful error handling for authentication and backend actor initialization.",
   "missing_requirements": [],
-  "hallucinated_features": [],
-  "confidence": 0.95,
+  "hallucinated_features": [
+    {
+      "description": "Added 10 new life-centric motivational messages to the backend motivationalMessages array",
+      "reason": "The BuildRequest explicitly states in non-goals: 'Modifying the motivational message content'. The diff shows new messages like 'Life is a precious gift. Cherish every moment.' and 'Your existence has meaning, purpose, and value.' which were not requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.92,
   "changed_files": [
+    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/src/components/Layout.tsx",
+    "frontend/src/App.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/HomePage.tsx",
     "project_state.json"
   ]
 }

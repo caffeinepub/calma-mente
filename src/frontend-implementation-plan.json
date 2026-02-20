@@ -1,21 +1,100 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Create download link in the app",
+  "title": "Fix Application Startup Error",
   "requirements": [
     {
-      "id": "REQ-15",
-      "summary": "Update the Android download button in the app footer to link to an actual download URL instead of the placeholder '#android-download'",
+      "id": "REQ-18",
+      "summary": "Investigate and fix the error that occurs when the Calma-Mente app initializes or loads for the first time",
       "acceptanceCriteria": [
-        "The Android download button in the footer navigates to a valid URL when clicked",
-        "The link can point to either a Play Store URL or a direct APK download location",
-        "The button remains visually consistent with the existing footer design"
+        "The app loads without errors on initial startup",
+        "Users can access the welcome screen without encountering errors",
+        "Console logs show no critical errors during app initialization",
+        "All routes (welcome, home, breathing, diary) load successfully"
       ],
       "file_operations": [
         {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Add error boundary wrapper around the app root to catch and log initialization errors. Add console logging to track provider initialization sequence. Ensure QueryClientProvider and InternetIdentityProvider are correctly configured with proper error handling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add error boundary for router initialization. Verify that all route components (welcome, home, breathing, diary) are properly imported and registered. Add fallback UI for routing errors. Ensure Layout component wraps routes correctly without causing mounting issues."
+        },
+        {
           "path": "frontend/src/components/Layout.tsx",
           "operation": "modify",
-          "description": "Replace the placeholder '#android-download' href in the Android download button with a valid download URL (Play Store or direct APK link). Preserve the existing button styling, Download icon, and footer layout including the CEO attribution and caffeine.ai credit."
+          "description": "Add error boundary to catch rendering errors in Layout component. Verify that all child components (header, footer) render without throwing errors. Add null checks for authentication state before rendering auth-dependent UI elements."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Verify that Internet Identity authentication initializes correctly without errors on app startup",
+      "acceptanceCriteria": [
+        "AuthClient initializes without throwing errors",
+        "Identity persistence and delegation validation work correctly",
+        "No authentication-related errors appear in the console during startup"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
+          "operation": "modify",
+          "description": "Add try-catch blocks around AuthClient.create() and identity validation logic. Add proper error logging for authentication initialization failures. Ensure that authentication errors do not block app initialization. Add fallback state when AuthClient fails to initialize. Verify that delegation validation handles expired or invalid delegations gracefully without throwing unhandled errors."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Ensure backend actor connection is established successfully on app initialization",
+      "acceptanceCriteria": [
+        "Backend actor is created without errors",
+        "Initial queries (motivational messages, diary entries) execute successfully",
+        "Network requests to the canister complete without failures"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useActor.ts",
+          "operation": "modify",
+          "description": "Add try-catch blocks around actor creation logic. Add error logging for actor initialization failures. Ensure that actor creation errors are handled gracefully and do not crash the app. Add retry logic or fallback state when backend connection fails. Verify that the actor is properly typed and matches the backend interface."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add proper error handling for all React Query hooks (useMyEntries, useAddDiaryEntry, useMotivationalMessages). Ensure queries have proper enabled flags to prevent execution before actor is ready. Add retry configuration for failed queries. Add error state handling that displays user-friendly messages instead of crashing. Verify that query invalidation after actor changes works correctly."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add error boundary for motivational message fetching. Ensure useMotivationalMessages hook handles loading and error states properly. Add fallback UI when motivational messages fail to load. Verify that the page renders successfully even when backend queries fail."
+        },
+        {
+          "path": "frontend/src/pages/DiaryPage.tsx",
+          "operation": "modify",
+          "description": "Add error boundary for diary entry fetching. Ensure useMyEntries hook handles loading and error states properly. Add fallback UI when diary entries fail to load. Verify that authentication check does not block page rendering. Ensure the page handles cases where the user is not authenticated gracefully."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Verify that React Query initialization and provider setup work correctly without errors",
+      "acceptanceCriteria": [
+        "QueryClientProvider wraps the app correctly",
+        "React Query hooks initialize without errors",
+        "Query invalidation and refetching work as expected"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Verify QueryClient configuration in main.tsx. Add proper default options for queries (retry, staleTime, cacheTime). Ensure QueryClientProvider is correctly positioned in the provider hierarchy. Add error logging for query client initialization. Verify that React Query devtools (if present) do not cause initialization errors."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Verify that all React Query hooks use proper queryKey structures. Ensure query functions handle undefined actor gracefully. Add proper typing for query data and error states. Verify that mutation onSuccess callbacks do not cause cascading errors. Ensure queryClient.invalidateQueries calls use correct query keys that match the registered queries."
         }
       ]
     }

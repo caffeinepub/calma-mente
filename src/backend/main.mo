@@ -4,8 +4,6 @@ import Array "mo:core/Array";
 import Principal "mo:core/Principal";
 import Runtime "mo:core/Runtime";
 
-
-
 actor {
   type DiaryEntry = {
     date : Text;

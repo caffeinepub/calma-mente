@@ -1,6 +1,8 @@
 import { useInternetIdentity } from '../hooks/useInternetIdentity';
 import { Button } from './ui/button';
-import { LogIn, LogOut, Smartphone } from 'lucide-react';
+import { LogIn, LogOut, Smartphone, Share2, Check } from 'lucide-react';
+import { useClipboard } from '../hooks/useClipboard';
+import { toast } from 'sonner';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,6 +11,13 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const { identity, login, clear, isLoggingIn } = useInternetIdentity();
   const isAuthenticated = !!identity && !identity.getPrincipal().isAnonymous();
+  const { copyToClipboard, isCopied } = useClipboard();
+
+  const handleCopyLink = () => {
+    const url = window.location.origin;
+    copyToClipboard(url);
+    toast.success('Link copiado para a área de transferência!');
+  };
 
   return (
     <div className="min-h-screen relative">
@@ -68,7 +77,7 @@ export default function Layout({ children }: LayoutProps) {
 
         <footer className="border-t border-border/50 backdrop-blur-sm bg-background/80 mt-16">
           <div className="container mx-auto px-4 py-6">
-            <div className="flex justify-center mb-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <a
                 href="https://play.google.com/store/apps/details?id=com.calmamente.app"
                 target="_blank"
@@ -78,6 +87,31 @@ export default function Layout({ children }: LayoutProps) {
                 <Smartphone className="w-5 h-5" />
                 <span className="font-medium">Download para Android</span>
               </a>
+              
+              <Button
+                onClick={handleCopyLink}
+                variant="outline"
+                className="gap-2 px-6 py-3 rounded-full border-primary/30 text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
+              >
+                {isCopied ? (
+                  <>
+                    <Check className="w-5 h-5" />
+                    <span className="font-medium">Link Copiado!</span>
+                  </>
+                ) : (
+                  <>
+                    <Share2 className="w-5 h-5" />
+                    <span className="font-medium">Compartilhar App</span>
+                  </>
+                )}
+              </Button>
+            </div>
+            
+            <div className="text-center mb-4">
+              <p className="text-sm text-muted-foreground mb-1">Link público do app:</p>
+              <p className="text-base font-mono text-foreground/80 select-all break-all px-4">
+                {window.location.origin}
+              </p>
             </div>
             
             <div className="text-center mb-3">

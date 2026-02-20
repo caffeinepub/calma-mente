@@ -1,9 +1,13 @@
 # Specification
 
 ## Summary
-**Goal:** Add a functional download link for the Android app in the footer.
+**Goal:** Fix application startup errors preventing the Calma-Mente app from loading correctly.
 
 **Planned changes:**
-- Update the Android download button in the app footer (Layout.tsx) to use a valid download URL instead of the placeholder '#android-download'
+- Investigate and resolve errors occurring during app initialization
+- Fix Internet Identity authentication initialization issues
+- Ensure backend actor connection establishes successfully on startup
+- Verify React Query provider setup works without errors
+- Test that all routes (welcome, home, breathing, diary) load successfully
 
-**User-visible outcome:** Users can click the Android download button in the footer and be directed to a valid download location for the Android app.
+**User-visible outcome:** The app loads smoothly on first startup without errors, allowing users to immediately access the welcome screen and navigate to all features without encountering initialization failures.
