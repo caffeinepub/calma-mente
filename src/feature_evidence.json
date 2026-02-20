@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-collection-of-motivational-and-inspirational-messages-related-to-mindfulness-meditation-and-mental-wellness-that-can-be-displayed-throughout-the-app",
-      "featureTitle": "Add a collection of motivational and inspirational messages related to mindfulness, meditation, and mental wellness that can be displayed throughout the app",
+      "featureId": "feature-add-matheus-gama-ceo-attribution-in-the-app-footer-below-the-android-download-button",
+      "featureTitle": "Add 'Matheus Gama, CEO' attribution in the app footer below the Android download button",
       "files": [
-        "frontend/src/hooks/useQueries.ts"
+        "frontend/src/components/Layout.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,44 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-8"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-display-a-random-motivational-message-on-the-home-page-that-changes-each-time-the-user-visits-or-refreshes",
-      "featureTitle": "Display a random motivational message on the home page that changes each time the user visits or refreshes",
-      "files": [
-        "frontend/src/components/MotivationalMessageCard.tsx",
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-9"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-show-a-motivational-message-after-completing-a-breathing-exercise-cycle-to-encourage-continued-practice",
-      "featureTitle": "Show a motivational message after completing a breathing exercise cycle to encourage continued practice",
-      "files": [
-        "frontend/src/pages/BreathingExercisePage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-10"
+        "REQ-14"
       ],
       "confidence": "high"
     }

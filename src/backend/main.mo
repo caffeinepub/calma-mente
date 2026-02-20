@@ -4,6 +4,8 @@ import Array "mo:core/Array";
 import Principal "mo:core/Principal";
 import Runtime "mo:core/Runtime";
 
+
+
 actor {
   type DiaryEntry = {
     date : Text;
@@ -25,6 +27,17 @@ actor {
     "Be present in this moment. It is all you truly have.",
     "Your mind is a garden. Cultivate positive thoughts.",
     "Progress, not perfection, is the goal.",
+    // New life-centric motivational messages
+    "Life is a precious gift. Cherish every moment.",
+    "Your existence has meaning, purpose, and value.",
+    "Every day is an opportunity to create beautiful memories.",
+    "You are worthy of love, happiness, and peace.",
+    "The world is a better place because you are in it.",
+    "Life's challenges help you grow stronger and wiser.",
+    "Never underestimate the impact you have on others.",
+    "Your journey is unique and irreplaceable.",
+    "Embrace life with gratitude and curiosity.",
+    "You have the strength to overcome any obstacle.",
   ];
 
   public query ({ caller }) func getAllMotivationalMessages() : async [Text] {

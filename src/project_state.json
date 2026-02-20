@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 11,
   "summary": "Calma-Mente: A meditation and breathing app with a start screen, breathing exercises with visual animations, diary feature for mood tracking, and Internet Identity authentication for saving user data",
   "architectural_notes": [],
   "known_issues": [],
@@ -85,6 +85,30 @@
         "REQ-10"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-prominent-android-download-link-or-button-in-the-app-footer-that-directs-users-to-download-the-android-version-of-calma-mente",
+      "title": "Add a prominent Android download link or button in the app footer that directs users to download the Android version of Calma-Mente",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-configure-the-link-to-point-to-a-placeholder-url-e-g-android-download-that-can-be-updated-with-the-actual-play-store-or-apk-download-url-when-available",
+      "title": "Configure the link to point to a placeholder URL (e.g., '#android-download') that can be updated with the actual Play Store or APK download URL when available",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-matheus-gama-ceo-attribution-in-the-app-footer-below-the-android-download-button",
+      "title": "Add 'Matheus Gama, CEO' attribution in the app footer below the Android download button",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -115,6 +139,32 @@
     {
       "id": "AR-5",
       "summary": "Add motivational messages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add messages about how precious life is",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add a new collection of motivational messages focused on the preciousness and value of life to the existing motivational message array in the backend",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Create Android download link/build",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add Matheus Gama as CEO of the app",
       "reqIds": [],
       "status": "pending"
     }

@@ -1,69 +1,38 @@
 {
   "kind": "build_request",
-  "title": "Add motivational messages",
+  "title": "Add Matheus Gama as CEO attribution in the app",
   "projectName": "Calma-Mente",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-8",
-      "text": "Add a collection of motivational and inspirational messages related to mindfulness, meditation, and mental wellness that can be displayed throughout the app",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Backend stores a curated collection of motivational messages in Portuguese",
-        "Messages cover themes of mindfulness, breathing, meditation, self-care, and emotional wellness",
-        "At least 15-20 unique motivational messages are available",
-        "Messages can be retrieved randomly or sequentially"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Display a random motivational message on the home page that changes each time the user visits or refreshes",
+      "id": "REQ-14",
+      "text": "Add 'Matheus Gama, CEO' attribution in the app footer below the Android download button",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Adicionar o nome de Matheus Gama como CEO DO APP"
         ]
       },
       "acceptanceCriteria": [
-        "Home page shows a motivational message in a visually prominent card or section",
-        "Message changes on page load or includes a refresh button to get a new message",
-        "Message display uses calming typography and styling consistent with the meditation theme",
-        "Message is clearly distinguishable from navigation cards"
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Show a motivational message after completing a breathing exercise cycle to encourage continued practice",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ]
-      },
-      "acceptanceCriteria": [
-        "After completing at least one full breathing cycle, display a brief motivational message",
-        "Message appears in a non-intrusive way that doesn't interrupt the breathing flow",
-        "Message relates to breathing practice, mindfulness, or perseverance",
-        "User can dismiss the message or it auto-fades after a few seconds"
+        "The footer in Layout.tsx displays 'Matheus Gama, CEO' in a visible, styled format",
+        "The CEO attribution appears below the existing Android download button",
+        "The text styling is consistent with the calming, meditative theme of the app",
+        "The attribution is visible on all pages that use the Layout component"
       ]
     }
   ],
   "constraints": [
-    "Motivational messages must be in Portuguese to match user's language preference",
-    "Messages should maintain the calming, supportive tone of the meditation app",
-    "Do not alter existing Internet Identity authentication flow",
-    "Do not modify immutable frontend paths (useInternetIdentity hooks, useActor, main.tsx, components/ui)"
+    "Do not modify backend files",
+    "Do not change the existing Android download button functionality",
+    "Maintain the existing footer layout structure"
   ],
   "nonGoals": [
-    "User-generated motivational messages",
-    "Social sharing of messages",
-    "Push notifications with daily motivational messages",
-    "Personalized messages based on user mood history"
+    "Adding CEO information to the backend or database",
+    "Creating a dedicated 'About' or 'Team' page",
+    "Adding additional team member attributions"
   ],
   "imageRequirements": {
     "required": [],
